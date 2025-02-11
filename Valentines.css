@@ -1,0 +1,99 @@
+body {
+    background-color: #ffccd5; /* Light pink for Valentine's theme */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    margin-bottom: 50px; /* Adds more space below the heading */
+    animation: color-change 3s infinite alternate; /* Apply color animation */
+}
+
+@keyframes color-change {
+    0% { color: #ff4d6d; }
+    50% { color: #ff85a1; }
+    100% { color: #ffb3c6; }
+}
+
+.envelope-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 50px; /* Moves the envelopes lower */
+    position: relative;
+}
+
+.envelope {
+    width: 150px;
+    height: 100px;
+    background: #ff6666;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.envelope::before {
+    content: '📩';
+    font-size: 40px;
+}
+
+.essay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.sticky {
+    background: yellow;
+    padding: 15px;
+    width: 150px;
+    height: 150px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    transform: rotate(-5deg);
+    font-weight: bold;
+    color: black;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Floating hearts animation */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+    opacity: 0.8;
+}
+
+/* Generate multiple hearts */
+.heart:nth-child(1) { left: 10%; animation-duration: 6s; }
+.heart:nth-child(2) { left: 30%; animation-duration: 4s; }
+.heart:nth-child(3) { left: 50%; animation-duration: 5s; }
+.heart:nth-child(4) { left: 70%; animation-duration: 6.5s; }
+.heart:nth-child(5) { left: 90%; animation-duration: 4.5s; }
