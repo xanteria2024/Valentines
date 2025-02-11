@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Special</title>
+    <link rel="stylesheet" href="Valentines.css">
+    <link rel="icon" href="heart.png" type="image/png">
+</head>
+<body>
+    <h1>Happy Valentine's Day!</h1>
+    <div class="envelope-container">
+        <div class="envelope" onclick="revealNote(0)">
+            <div class="sticky">I love you~ ❤️</div>
+        </div>
+        <div class="envelope" onclick="revealNote(1)">
+            <div class="sticky">I'd let you inside of my heart~ 😘</div>
+        </div>
+        <div class="envelope" onclick="revealNote(2)">
+            <div class="sticky">Thank you for being my valentine~ 👉👈🥺</div>
+        </div>
+    </div>
+    
+    <div class="essay">
+        <p>I never knew that you'd be the one to steal my heart and make me fall for you, i promise you that i'll make you happy, pleasure you, go on dates, and play games with you! mwa, i love you my baby kaitlyn~
+
+
+
+
+        </p>
+    </div>
+    
+    <audio id="background-music" loop>
+        <source src="IVOS come inside of my heart.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="pop-sound">
+        <source src="pop.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating hearts below -->
+    <div id="hearts-container"></div>
+
+    <script>
+        function revealNote(index) {
+            let envelopes = document.querySelectorAll('.envelope');
+            let notes = document.querySelectorAll('.sticky');
+            let music = document.getElementById('background-music');
+            let popSound = document.getElementById('pop-sound');
+
+            // Show sticky note in front of the envelope
+            notes[index].style.display = "block";
+            
+            // Play background music and pop sound
+            music.play();
+            popSound.play();
+        }
+
+        // Function to generate floating hearts from below
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "0px";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                heart.innerHTML = "❤️";
+                heartsContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+        setInterval(createHearts, 1000);
+    </script>
+</body>
+</html>
